@@ -1,5 +1,5 @@
 local overrides = require "custom.configs.overrides"
-
+local harpoon = require "custom.configs.harpoon"
 ---@type NvPluginSpec[]
 local plugins = {
 
@@ -71,6 +71,7 @@ local plugins = {
       vim.api.nvim_set_keymap("n", ",", "<cmd>lua require'hop'.hint_words()<cr>", {})
     end,
   },
+  harpoon,
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

@@ -22,6 +22,10 @@ opt.smartindent = true
 opt.tabstop = 2
 opt.softtabstop = 2
 
+-- Custom
+opt.scrolloff = 8
+opt.pumheight = 5
+
 opt.fillchars = { eob = " " }
 opt.ignorecase = true
 opt.smartcase = true
