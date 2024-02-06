@@ -72,6 +72,7 @@ local plugins = {
     end,
   },
   harpoon,
+  require "custom.configs.undo",
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
