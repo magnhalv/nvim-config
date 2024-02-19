@@ -7,3 +7,9 @@ autocmd("VimResized", {
 })
 
 vim.api.nvim_set_keymap("n", "\\", "`", { noremap = true, silent = true })
+
+autocmd("VimEnter", {
+  pattern = "*",
+  command = "hi Normal ctermbg=none guibg=none",
+})
+
