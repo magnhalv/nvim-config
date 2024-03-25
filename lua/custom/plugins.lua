@@ -45,13 +45,13 @@ local plugins = {
       require "custom.configs.conform"
     end,
   },
-  {
-    "karb94/neoscroll.nvim",
-    event = "BufEnter",
-    config = function()
-      require("neoscroll").setup {}
-    end,
-  },
+  --  {
+  --   "karb94/neoscroll.nvim",
+  --  event = "BufEnter",
+  --  config = function()
+  --   require("neoscroll").setup {}
+  -- end,
+  -- },
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -61,6 +61,10 @@ local plugins = {
         -- Configuration here, or leave empty to use defaults
       }
     end,
+  },
+  {
+    "tpope/vim-abolish",
+    event = "VeryLazy",
   },
   {
     "smoka7/hop.nvim",
@@ -98,6 +102,18 @@ local plugins = {
       }
     end,
   },
+  {
+    "natecraddock/sessions.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("sessions").setup {
+        events = { "BufEnter" },
+        session_filepath = vim.fn.stdpath "data" .. "/sessions",
+        absolute = true,
+      }
+    end,
+  },
+  require "custom.configs.workspaces",
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
