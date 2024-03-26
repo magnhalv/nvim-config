@@ -45,13 +45,6 @@ local plugins = {
       require "custom.configs.conform"
     end,
   },
-  --  {
-  --   "karb94/neoscroll.nvim",
-  --  event = "BufEnter",
-  --  config = function()
-  --   require("neoscroll").setup {}
-  -- end,
-  -- },
   {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
