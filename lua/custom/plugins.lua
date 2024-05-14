@@ -69,6 +69,7 @@ local plugins = {
   },
   require "custom.configs.harpoon",
   require "custom.configs.undo",
+  require "custom.configs.nvim-treesitter-textobjects",
   {
     "nvim-orgmode/orgmode",
     dependencies = {
@@ -106,7 +107,17 @@ local plugins = {
       }
     end,
   },
+  {
+    "m4xshen/hardtime.nvim",
+    event = "VeryLazy",
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    opts = {},
+  },
   require "custom.configs.workspaces",
+  {
+    "chaoren/vim-wordmotion",
+    event = "VeryLazy",
+  },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
