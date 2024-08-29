@@ -35,6 +35,7 @@ return {
         "vimdoc",
         "html",
         "css",
+        "cpp",
       },
     },
   },

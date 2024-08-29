@@ -4,8 +4,12 @@
 ---@type ChadrcConfig
 local M = {}
 
+M.base46 = {
+  theme = "darkcula",
+}
+
 M.ui = {
-  theme = "nightowl",
+  theme = "darcula",
 
   -- hl_override = {
   -- 	Comment = { italic = true },

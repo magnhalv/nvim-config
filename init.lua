@@ -37,3 +37,7 @@ require "nvchad.autocmds"
 vim.schedule(function()
   require "mappings"
 end)
+
+-- Override the color of line numbers
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#A0AEBC", bg = "#2b2b2b" })
+vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#6897bb", bg = "#2b2b2b" })
