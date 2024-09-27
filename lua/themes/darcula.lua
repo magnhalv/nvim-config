@@ -82,6 +82,9 @@ M.polish_hl = {
     ["@tag.delimiter"] = { fg = M.base_30.white },
     ["@text"] = { fg = M.base_30.white },
     ["@operator"] = { fg = M.base_30.white },
+    ["@field"] = { fg = M.base_30.white },
+    ["@argument"] = { fg = M.base_30.white },
+    ["@variable.member"] = { fg = M.base_30.white },
   },
 }
 
