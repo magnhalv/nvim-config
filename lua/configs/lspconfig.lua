@@ -21,7 +21,6 @@ lspconfig.tsserver.setup {
   capabilities = capabilities,
 }
 
-
 lspconfig["clangd"].setup {
   on_attach = on_attach,
   on_init = on_init,
@@ -43,8 +42,8 @@ lspconfig["pylsp"].setup {
       plugins = {
         pyflakes = { enabled = false },
         pylint = { enabled = false },
+        mccabe = { enabled = false }, -- cyclomatic complexity, fuck that
       },
     },
   },
 }
-
