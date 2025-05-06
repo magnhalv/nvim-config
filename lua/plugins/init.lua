@@ -77,32 +77,8 @@ return {
       vim.api.nvim_set_keymap("n", ",", "<cmd>lua require'hop'.hint_words()<cr>", {})
     end,
   },
-  require "plugins.configs.harpoon",
   require "plugins.configs.undo",
   require "plugins.configs.nvim-treesitter-textobjects",
-  {
-    "nvim-orgmode/orgmode",
-    dependencies = {
-      { "nvim-treesitter/nvim-treesitter", lazy = true },
-    },
-    event = "VeryLazy",
-    config = function()
-      -- Setup treesitter
-      require("nvim-treesitter.configs").setup {
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = { "org" },
-        },
-        ensure_installed = { "org" },
-      }
-
-      -- Setup orgmode
-      require("orgmode").setup {
-        org_agenda_files = "~/orgfiles/**/*",
-        org_default_notes_file = "~/orgfiles/refile.org",
-      }
-    end,
-  },
   {
     "natecraddock/sessions.nvim",
     event = "VeryLazy",
@@ -114,12 +90,6 @@ return {
       }
     end,
   },
-  -- {
-  --   "m4xshen/hardtime.nvim",
-  --   event = "VeryLazy",
-  --   dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-  --   opts = {},
-  -- },
   require "plugins.configs.workspaces",
   {
     "chaoren/vim-wordmotion",

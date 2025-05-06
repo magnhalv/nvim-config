@@ -1,10 +1,10 @@
-vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
+vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
 
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   local repo = "https://github.com/folke/lazy.nvim.git"
   vim.fn.system { "git", "clone", "--filter=blob:none", repo, "--branch=stable", lazypath }
 end
@@ -20,9 +20,6 @@ require("lazy").setup({
     lazy = false,
     branch = "v2.5",
     import = "nvchad.plugins",
-    config = function()
-      require "options"
-    end,
   },
 
   { import = "plugins" },
@@ -32,14 +29,16 @@ require("lazy").setup({
 dofile(vim.g.base46_cache .. "defaults")
 dofile(vim.g.base46_cache .. "statusline")
 
+require "options"
 require "nvchad.autocmds"
 
 vim.schedule(function()
   require "mappings"
 end)
 
+-- CUSTOM
 -- Override the color of line numbers
-vim.api.nvim_set_hl(0, "LineNr", { fg = "#A0AEBC", bg = "#2b2b2b" })
+vim.api.nvim_set_hl(0, "LineNr", { fg = "#7F8C9A", bg = "#2b2b2b" })
 vim.api.nvim_set_hl(0, "CursorLineNr", { fg = "#6897bb", bg = "#2b2b2b" })
 
 -- Scons
@@ -47,3 +46,5 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.scons",
   command = "set filetype=python",
 })
+
+vim.g.neovide_scale = 0.5
