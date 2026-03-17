@@ -2,12 +2,11 @@ return {
   "nvim-treesitter/nvim-treesitter-textobjects",
   event = "VeryLazy",
   dependencies = {
-    { "nvim-treesitter/nvim-treesitter", lazy = true },
+    { "nvim-treesitter/nvim-treesitter" },
   },
   config = function()
-    require("nvim-treesitter.configs").setup {
-      textobjects = {
-        select = {
+    require("nvim-treesitter-textobjects").setup {
+      select = {
           enable = true,
 
           -- Automatically jump forward to textobj, similar to targets.vim
@@ -87,7 +86,6 @@ return {
             ["[L"] = { query = "@loop.outer", desc = "Prev loop end" },
           },
         },
-      },
     }
   end,
 }
