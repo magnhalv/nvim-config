@@ -22,6 +22,9 @@ return {
 
         -- python
         "python-lsp-server",
+
+        -- typescript / react
+        "typescript-language-server",
       },
     },
   },
@@ -36,6 +39,9 @@ return {
         "html",
         "css",
         "cpp",
+        "javascript",
+        "typescript",
+        "tsx",
       },
     },
   },
