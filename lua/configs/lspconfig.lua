@@ -32,6 +32,18 @@ lspconfig["clangd"].setup {
   capabilities = capabilities,
 }
 
+lspconfig["dartls"].setup {
+  on_attach = on_attach,
+  on_init = on_init,
+  capabilities = capabilities,
+  settings = {
+    dart = {
+      completeFunctionCalls = true,
+      showTodos = true,
+    },
+  },
+}
+
 lspconfig["pylsp"].setup {
   on_attach = on_attach,
   on_init = on_init,
