@@ -46,6 +46,8 @@ map(
 
 map("n", "<Leader>o", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch Source/Header C/C++" })
 
+map("n", "<leader>fw", "<cmd>RgWithFilter<CR>", { desc = "live grep with file filter" })
+
 map("n", "gr", function()
   vim.lsp.buf.references()
 end, { desc = "LSP references" })

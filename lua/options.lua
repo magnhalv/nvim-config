@@ -39,6 +39,7 @@ autocmd("VimEnter", {
           ["cpp"] = "*.cpp",
           ["hpp"] = "*.hpp",
           ["py"] = "*.py",
+          ["yaml"] = "*.yaml",
         }
       opts.pattern = opts.pattern or "%s"
 
