@@ -14,6 +14,7 @@ M.treesitter = {
     "python",
     "markdown",
     "markdown_inline",
+    "rust",
   },
   indent = {
     enable = true,
@@ -42,6 +43,10 @@ M.mason = {
 
     -- python
     "python-lsp-server",
+
+    -- rust
+    "rust-analyzer",
+    "rustfmt",
   },
 }
 

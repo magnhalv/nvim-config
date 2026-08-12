@@ -9,7 +9,9 @@ autocmd("VimResized", {
   command = "tabdo wincmd =",
 })
 
-vim.g.neovide_scale_factor = 0.75
+if vim.g.neovide then
+  vim.g.neovide_scale_factor = vim.loop.os_uname().sysname == "Darwin" and 0.95 or 0.75
+end
 
 autocmd("VimEnter", {
   callback = function()

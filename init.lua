@@ -46,5 +46,3 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "*.scons",
   command = "set filetype=python",
 })
-
-vim.g.neovide_scale = 0.5

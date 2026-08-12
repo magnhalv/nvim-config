@@ -23,6 +23,10 @@ return {
         -- python
         "python-lsp-server",
 
+        -- rust
+        "rust-analyzer",
+        "rustfmt",
+
         -- typescript / react
         "typescript-language-server",
       },
@@ -42,6 +46,9 @@ return {
         "javascript",
         "typescript",
         "tsx",
+        "rust",
+        "markdown",
+        "markdown_inline",
       },
     },
   },

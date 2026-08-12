@@ -1,65 +1,41 @@
--- load defaults i.e lua_lsp
-require("nvchad.configs.lspconfig").defaults()
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+  border = "rounded",
+})
 
-local lspconfig = require "lspconfig"
-
--- EXAMPLE
-local servers = { "html", "cssls" }
-local nvlsp = require "nvchad.configs.lspconfig"
-
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
-  }
-end
-
-lspconfig.ts_ls.setup {
-  on_attach = nvlsp.on_attach,
-  on_init = nvlsp.on_init,
-  capabilities = nvlsp.capabilities,
-}
-
-local on_attach = require("nvchad.configs.lspconfig").on_attach
-local on_init = require("nvchad.configs.lspconfig").on_init
-local capabilities = require("nvchad.configs.lspconfig").capabilities
-
-lspconfig["clangd"].setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
-}
-
-lspconfig["dartls"].setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
+vim.lsp.config("dartls", {
   settings = {
     dart = {
       completeFunctionCalls = true,
       showTodos = true,
     },
   },
-}
+})
 
-lspconfig["pylsp"].setup {
-  on_attach = on_attach,
-  on_init = on_init,
-  capabilities = capabilities,
+vim.lsp.config("pylsp", {
   flags = {
-    -- This will be the default in neovim 0.7+
     debounce_text_changes = 150,
   },
   settings = {
-    -- configure plugins in pylsp
     pylsp = {
       plugins = {
         pyflakes = { enabled = false },
         pylint = { enabled = false },
-        mccabe = { enabled = false }, -- cyclomatic complexity, fuck that
+        mccabe = { enabled = false },
       },
     },
   },
+})
+
+local servers = {
+  "html",
+  "cssls",
+  "ts_ls",
+  "clangd",
+  "dartls",
+  "rust_analyzer",
+  "pylsp",
 }
+
+for _, server in ipairs(servers) do
+  vim.lsp.enable(server)
+end

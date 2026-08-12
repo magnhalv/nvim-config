@@ -17,13 +17,11 @@ function CloseOtherBuffers()
     if buf.bufnr ~= current_buf then
       if buf.changed == 1 then
         local name = buf.name ~= "" and buf.name or "[No Name]"
-        local choice = vim.fn.confirm(
-          "Save changes to " .. name .. "?",
-          "&Save\n&Discard\n&Skip",
-          3
-        )
+        local choice = vim.fn.confirm("Save changes to " .. name .. "?", "&Save\n&Discard\n&Skip", 3)
         if choice == 1 then
-          vim.api.nvim_buf_call(buf.bufnr, function() vim.cmd "write" end)
+          vim.api.nvim_buf_call(buf.bufnr, function()
+            vim.cmd "write"
+          end)
           vim.api.nvim_buf_delete(buf.bufnr, {})
         elseif choice == 2 then
           vim.api.nvim_buf_delete(buf.bufnr, { force = true })
@@ -46,5 +44,12 @@ map(
   { desc = "Close all other buffers", noremap = true, silent = true }
 )
 
-map("n", "<Leader>o", "<cmd>ClangdSwitchSourceHeader<cr>", { desc= "Switch Source/Header C/C++"})
+map("n", "<Leader>o", "<cmd>ClangdSwitchSourceHeader<cr>", { desc = "Switch Source/Header C/C++" })
 
+map("n", "gr", function()
+  vim.lsp.buf.references()
+end, { desc = "LSP references" })
+
+map("n", "K", function()
+  vim.lsp.buf.hover { border = "single" }
+end, { desc = "LSP hover" })
