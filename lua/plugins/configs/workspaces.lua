@@ -4,6 +4,7 @@ return {
   lazy = false,
   config = function()
     require("workspaces").setup {
+      auto_open = true,
       hooks = {
         open_pre = {
           -- If recording, save current session state and stop recording
