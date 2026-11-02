@@ -94,7 +94,7 @@ return {
   require "plugins.configs.nvim-treesitter-textobjects",
   {
     "natecraddock/sessions.nvim",
-    event = "VeryLazy",
+    lazy = false,
     config = function()
       require("sessions").setup {
         events = { "BufEnter" },
@@ -108,7 +108,6 @@ return {
     "chaoren/vim-wordmotion",
     event = "VeryLazy",
   },
-  require "plugins.configs.workspaces",
   {
     "nvim-telescope/telescope.nvim",
     opts = {

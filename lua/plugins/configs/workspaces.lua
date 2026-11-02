@@ -1,14 +1,16 @@
 return {
   "natecraddock/workspaces.nvim",
-  event = "VeryLazy",
   lazy = false,
+  dependencies = { "natecraddock/sessions.nvim" },
   config = function()
     require("workspaces").setup {
       auto_open = true,
       hooks = {
         open_pre = {
           -- If recording, save current session state and stop recording
-          "SessionsStop",
+          function()
+            require("sessions").stop_autosave()
+          end,
 
           -- delete all buffers (does not save changes)
           "silent %bdelete!",
